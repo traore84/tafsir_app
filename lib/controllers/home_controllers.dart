@@ -16,7 +16,6 @@ class HomeController extends GetxController {
   fetchDataFromFirebase() {
     FirebaseFirestore.instance
         .collection('TAFSIRS')
-        
         .snapshots()
         .listen((querySnapshot) {
       querySnapshot.docs.forEach((element) {
@@ -25,11 +24,19 @@ class HomeController extends GetxController {
     });
   }
 
-
   /// getter list tafsir from firebase ///
   List<Tafsir> get listtafsir {
     var list = _listTafsirFromirebase;
     list.sort((a, b) => a.titre.compareTo(b.titre));
     return list;
+  }
+
+  /// convertir le temps en format 00:00 ///
+  String converTo(int temp) {
+    var munite = (temp / 60).toStringAsFixed(0);
+    var _second = (temp % 60).toStringAsFixed(0);
+    var sec = _second.split(':').last;
+
+    return '$munite : ${sec.length == 2 ? _second : _second + '0'}';
   }
 }

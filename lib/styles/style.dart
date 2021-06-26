@@ -8,3 +8,9 @@ final titreStyle = GoogleFonts.roboto(
   fontWeight: FontWeight.bold,
   fontSize: isSmallScreen(Get.width)? 15:18
 );
+
+final rowtitreStyle = GoogleFonts.roboto(
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontSize: isSmallScreen(Get.width)? 15:18
+);
