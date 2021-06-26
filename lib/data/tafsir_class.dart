@@ -3,25 +3,25 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Tafsir {
-  final String title;
+  final String titre;
   final String path;
   final String size;
   final int duration;
   Tafsir({
-    required this.title,
+    required this.titre,
     required this.path,
     required this.size,
     required this.duration,
   });
 
   Tafsir copyWith({
-    String? title,
+    String? titre,
     String? path,
     String? size,
     int? duration,
   }) {
     return Tafsir(
-      title: title ?? this.title,
+      titre: titre ?? this.titre,
       path: path ?? this.path,
       size: size ?? this.size,
       duration: duration ?? this.duration,
@@ -30,7 +30,7 @@ class Tafsir {
 
   Map<String, dynamic> toMap() {
     return {
-      'title': title,
+      'titre': titre,
       'path': path,
       'size': size,
       'duration': duration,
@@ -39,7 +39,7 @@ class Tafsir {
 
   factory Tafsir.fromMap(Map<String, dynamic> map) {
     return Tafsir(
-      title: map['title'],
+      titre: map['titre'],
       path: map['path'],
       size: map['size'],
       duration: map['duration'],
@@ -49,10 +49,10 @@ class Tafsir {
 
   factory Tafsir.fromDocumentSnapshot(DocumentSnapshot map) {
     return Tafsir(
-      title: map['title'],
-      path: map['path'],
-      size: map['size'],
-      duration: map['duration'],
+      titre: map['titre'] as String,
+      path: map['path'] as String,
+      size: map['size'] as String,
+      duration: map['duration'] as int,
     );
   }
 
@@ -63,7 +63,7 @@ class Tafsir {
 
   @override
   String toString() {
-    return 'Tafsir(title: $title, path: $path, size: $size, duration: $duration)';
+    return 'Tafsir(title: $titre, path: $path, size: $size, duration: $duration)';
   }
 
   @override
@@ -71,7 +71,7 @@ class Tafsir {
     if (identical(this, other)) return true;
   
     return other is Tafsir &&
-      other.title == title &&
+      other.titre == titre &&
       other.path == path &&
       other.size == size &&
       other.duration == duration;
@@ -79,7 +79,7 @@ class Tafsir {
 
   @override
   int get hashCode {
-    return title.hashCode ^
+    return titre.hashCode ^
       path.hashCode ^
       size.hashCode ^
       duration.hashCode;

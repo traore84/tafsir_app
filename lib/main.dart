@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tafsir_app/controllers/home_controllers.dart';
+
 import 'package:tafsir_app/screens/home_screen.dart';
 import 'package:tafsir_app/styles/theme_style.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(HomeController());
+  
   runApp(MyApp());
 }
 

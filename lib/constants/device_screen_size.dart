@@ -1,4 +1,4 @@
-import 'package:tafsir_app/controllers/home_controllers.dart';
+
 
 /// methode de verification de la taille de l'ecran  ///
 bool isSmallScreen(double deviceScreen) {
@@ -6,4 +6,3 @@ bool isSmallScreen(double deviceScreen) {
   return false;
 }
 
-HomeController homeController = HomeController.homeController;

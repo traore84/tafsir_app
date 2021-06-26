@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 import 'package:tafsir_app/data/tafsir_class.dart';
 
 class HomeController extends GetxController {
-  static HomeController homeController = Get.find();
-
   /// list de tafsir from firebase ///
-  RxList<Tafsir> listTafsirFromirebase = RxList<Tafsir>([]);
+  RxList<Tafsir> _listTafsirFromirebase = RxList<Tafsir>([]);
 
   @override
   void onInit() {
@@ -15,15 +13,23 @@ class HomeController extends GetxController {
   }
 
   /// fetch data from firebase ///
-  void fetchDataFromFirebase() {
+  fetchDataFromFirebase() {
     FirebaseFirestore.instance
         .collection('TAFSIRS')
-        .orderBy('titre')
+        
         .snapshots()
-        .listen((event) {
-      event.docs.forEach((element) {
-        listTafsirFromirebase.add(Tafsir.fromDocumentSnapshot(element));
+        .listen((querySnapshot) {
+      querySnapshot.docs.forEach((element) {
+        _listTafsirFromirebase.add(Tafsir.fromDocumentSnapshot(element));
       });
     });
+  }
+
+
+  /// getter list tafsir from firebase ///
+  List<Tafsir> get listtafsir {
+    var list = _listTafsirFromirebase;
+    list.sort((a, b) => a.titre.compareTo(b.titre));
+    return list;
   }
 }
