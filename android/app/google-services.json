@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "371812576603",
+    "project_id": "app-tafsir",
+    "storage_bucket": "app-tafsir.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371812576603:android:53f76d8fe338c2d75afe7e",
+        "android_client_info": {
+          "package_name": "com.traoreaudioapp.audio_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9Y6ILYreagR_1010LtjoZ_sYWkCgcQEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371812576603:android:ed50b2db99d6ca3b5afe7e",
+        "android_client_info": {
+          "package_name": "fr.traore.mon_server"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9Y6ILYreagR_1010LtjoZ_sYWkCgcQEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371812576603:android:e3013077b91a5b6e5afe7e",
+        "android_client_info": {
+          "package_name": "fr.traore.tafsir_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9Y6ILYreagR_1010LtjoZ_sYWkCgcQEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371812576603:android:dd0068dc41eb058a5afe7e",
+        "android_client_info": {
+          "package_name": "fr.traore.youssouf_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9Y6ILYreagR_1010LtjoZ_sYWkCgcQEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371812576603-8t22ov5vfgc7b05b8ksg53ckjpdor71d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
