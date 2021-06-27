@@ -107,7 +107,7 @@ class PlayerScreen extends StatelessWidget {
 
   Widget playerBottomControls() {
     return Container(
-        margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -197,6 +197,7 @@ class PlayerScreen extends StatelessWidget {
 
   Widget slider() {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5),
       width: Get.width,
       child: SliderTheme(
         data: SliderThemeData(
@@ -210,26 +211,34 @@ class PlayerScreen extends StatelessWidget {
             Container(
               child: Text(
                 '52:20',
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            Container(
-              width: Get.width - 80,
-              child: Obx(
-                () => Slider(
-                    activeColor: primaryColor,
-                    max: 100,
-                    min: 0,
-                    value: playerController.sliderValue.value,
-                    onChanged: (val) {
-                      playerController.sliderValue.value = val;
-                    }),
+            Expanded(
+              child: Container(
+                //width: Get.width - 80,
+                child: Obx(
+                  () => Slider(
+                      activeColor: primaryColor,
+                      max: 100,
+                      min: 0,
+                      value: playerController.sliderValue.value,
+                      onChanged: (val) {
+                        playerController.sliderValue.value = val;
+                      }),
+                ),
               ),
             ),
             Container(
               child: Text(
                 '52:20',
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],
