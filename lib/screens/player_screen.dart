@@ -80,13 +80,22 @@ class PlayerScreen extends StatelessWidget {
                 height: Get.height * .05,
               ),
               banerImage(),
+              SizedBox(
+                height: Get.height * .05,
+              ),
               Container(
                 child: Text(
                   'Assise 001',
                   style: playerBodyTextStyle,
                 ),
               ),
+              SizedBox(
+                height: Get.height * .05,
+              ),
               slider(),
+              SizedBox(
+                height: Get.height * .05,
+              ),
               playerControls(),
             ],
           ),
@@ -98,17 +107,46 @@ class PlayerScreen extends StatelessWidget {
 
   Widget playerBottomControls() {
     return Container(
+        margin: EdgeInsets.only(bottom: 10),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           InkWell(
             child: Container(
               child: Icon(
                 Icons.repeat,
                 color: Colors.black,
-                size: 50,
+                size: 30,
               ),
             ),
-          )
+          ),
+          InkWell(
+            child: Container(
+              child: Icon(
+                Icons.download,
+                color: Colors.black,
+                size: 30,
+              ),
+            ),
+          ),
+          InkWell(
+            child: Container(
+              child: Icon(
+                Icons.queue_music,
+                color: Colors.black,
+                size: 30,
+              ),
+            ),
+          ),
+          InkWell(
+            child: Container(
+              child: Icon(
+                Icons.shuffle,
+                color: Colors.black,
+                size: 30,
+              ),
+            ),
+          ),
         ],
       ),
     );
