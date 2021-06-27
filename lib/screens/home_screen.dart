@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tafsir_app/constants/device_screen_size.dart';
+
 import 'package:tafsir_app/constants/text_constant.dart';
 
 import 'package:tafsir_app/controllers/home_controllers.dart';
@@ -40,6 +40,7 @@ class HomeScreen extends StatelessWidget {
                       : Center(
                           child: CircularProgressIndicator(),
                         ),
+                  bottomBar(),
                 ],
               ),
             ),
@@ -76,7 +77,7 @@ class HomeScreen extends StatelessWidget {
           itemCount: listTafsir.length,
           itemBuilder: (_, index) {
             return Container(
-              margin: EdgeInsets.only(top: 10,left: 10,right: 10),
+              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
               width: Get.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     child: Icon(Icons.play_arrow),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           color: Colors.grey,
                           width: 1,
@@ -93,12 +94,18 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     child: Column(
                       children: [
-                        Text('Riyaad Tafasir ${listTafsir[index].titre}',style: rowtitreStyle,),
+                        Text(
+                          'Riyaad Tafasir ${listTafsir[index].titre}',
+                          style: rowtitreStyle,
+                        ),
                         Text(listTafsir[index].size)
                       ],
                     ),
                   ),
-                  Container(child: Text(homeController.converTo(listTafsir[index].duration)),),
+                  Container(
+                    child: Text(
+                        homeController.converTo(listTafsir[index].duration)),
+                  ),
                   Container(
                     child: Icon(
                       Icons.favorite,
@@ -109,6 +116,66 @@ class HomeScreen extends StatelessWidget {
               ),
             );
           }),
+    );
+  }
+
+  Widget bottomBar() {
+    return Container(
+      width: Get.width,
+      height: Get.height * .15,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          color: primaryColor),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Text(
+              'Riyaad Tafasir Assise 001',
+              style: bottomBarTextStyle,
+            ),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                InkWell(
+                    child: Container(
+                  child: Icon(
+                    Icons.skip_previous,
+                    color: Colors.white,
+                  ),
+                )),
+                InkWell(
+                    child: Container(
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                )),
+                InkWell(
+                    child: Container(
+                  child: Icon(
+                    Icons.skip_next,
+                    color: Colors.white,
+                  ),
+                ))
+              ],
+            ),
+          ),
+          Container(
+            child: Text(
+              '56:25',
+              style: bottomBarTextStyle,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

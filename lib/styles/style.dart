@@ -14,3 +14,10 @@ final rowtitreStyle = GoogleFonts.roboto(
   fontWeight: FontWeight.bold,
   fontSize: isSmallScreen(Get.width)? 15:18
 );
+
+
+final bottomBarTextStyle = GoogleFonts.roboto(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: isSmallScreen(Get.width)? 15:18
+);
