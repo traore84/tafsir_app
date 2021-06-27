@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:get/get.dart';
 import 'package:tafsir_app/controllers/home_controllers.dart';
+import 'package:tafsir_app/data/tafsir_class.dart';
 
 class PlayerController extends GetxController {
   /// slider value ///
@@ -25,13 +26,13 @@ class PlayerController extends GetxController {
   HomeController homeController = Get.find();
 
   /// methode de charge audio list ///
-  void generateAudioList() {
-    if (isLocalFile.value) {
-    } else {
-      homeController.listtafsir.forEach((element) {
+  void generateAudioList(List<Tafsir> tafsirs) {
+    tafsirs.forEach(
+      (element) {
         audios.add(
           Audio.network(
             element.path+'.mp3',
+            cached: true,
             metas: Metas(
               title: element.titre,
               album: album,
@@ -40,21 +41,21 @@ class PlayerController extends GetxController {
             ),
           ),
         );
-      });
-    }
+        print(element.path);
+      },
+    );
   }
 
   /// play ///
   Future<void> play() async {
-    if (playerState == PlayerState.stop) {
+    try {
       assetsAudioPlayer.open(
         Playlist(audios: audios),
         showNotification: true,
         autoStart: false,
       );
-      assetsAudioPlayer.play();
-    } else {
-      assetsAudioPlayer.play();
+    } catch (e) {
+      print('errorrrrrrrrrrrrrrrrrrrrrr ${e.toString()}');
     }
   }
 
@@ -66,12 +67,13 @@ class PlayerController extends GetxController {
   void initialisation() {
     assetsAudioPlayer.playerState.listen((event) {
       playerState = event;
+      print('playerstate event $event');
     });
   }
 
   @override
   void onInit() {
-    generateAudioList();
+    // generateAudioList();
     initialisation();
     super.onInit();
   }

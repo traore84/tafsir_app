@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:tafsir_app/constants/text_constant.dart';
 
 import 'package:tafsir_app/controllers/home_controllers.dart';
+import 'package:tafsir_app/controllers/player_controller.dart';
 import 'package:tafsir_app/data/tafsir_class.dart';
 import 'package:tafsir_app/styles/color_style.dart';
 import 'package:tafsir_app/styles/style.dart';
@@ -11,10 +12,12 @@ import 'package:tafsir_app/widgets/image_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  final homeController = Get.put(HomeController());
+  final homeController = Get.find<HomeController>();
+  final playerController = Get.put(PlayerController());
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -41,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                       : Center(
                           child: CircularProgressIndicator(),
                         ),
-                  bottomBar(),
+                  //bottomBar(),
                 ],
               ),
             ),
@@ -50,8 +53,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
-  
 
   Widget playlistBody(List<Tafsir> listTafsir) {
     return Expanded(
@@ -65,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    child: Icon(Icons.play_arrow),
+                    child: Icon(Icons.download),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -133,13 +134,17 @@ class HomeScreen extends StatelessWidget {
                   ),
                 )),
                 InkWell(
+                    onTap: () {
+                       playerController.generateAudioList(homeController.listtafsir);
+                      playerController.play();
+                    },
                     child: Container(
-                  child: Icon(
-                    Icons.play_arrow,
-                    color: Colors.white,
-                    size: 50,
-                  ),
-                )),
+                      child: Icon(
+                        Icons.play_arrow,
+                        color: Colors.white,
+                        size: 50,
+                      ),
+                    )),
                 InkWell(
                     child: Container(
                   child: Icon(
