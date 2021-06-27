@@ -7,6 +7,7 @@ import 'package:tafsir_app/controllers/home_controllers.dart';
 import 'package:tafsir_app/data/tafsir_class.dart';
 import 'package:tafsir_app/styles/color_style.dart';
 import 'package:tafsir_app/styles/style.dart';
+import 'package:tafsir_app/widgets/image_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -50,26 +51,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget banerImage() {
-    return Container(
-      height: Get.height * .3,
-      width: Get.width * .8,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/image.png'),
-            fit: BoxFit.fill,
-          ),
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(.3),
-              blurRadius: 5,
-              spreadRadius: 2,
-              offset: Offset(1, 1),
-            )
-          ]),
-    );
-  }
+  
 
   Widget playlistBody(List<Tafsir> listTafsir) {
     return Expanded(

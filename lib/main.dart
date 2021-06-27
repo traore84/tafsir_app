@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:tafsir_app/screens/home_screen.dart';
+import 'package:tafsir_app/screens/player_screen.dart';
 import 'package:tafsir_app/styles/theme_style.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   runApp(MyApp());
 }
 
@@ -52,7 +53,7 @@ class _AppState extends State<App> {
 
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          return HomeScreen();
+          return PlayerScreen(); //HomeScreen();
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
