@@ -21,3 +21,16 @@ final bottomBarTextStyle = GoogleFonts.roboto(
   fontWeight: FontWeight.bold,
   fontSize: isSmallScreen(Get.width)? 15:18
 );
+
+
+final playerAppBarTextStyle = GoogleFonts.roboto(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: isSmallScreen(Get.width)? 20:24
+);
+
+final playerBodyTextStyle = GoogleFonts.roboto(
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontSize: isSmallScreen(Get.width)? 20:24
+);
