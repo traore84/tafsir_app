@@ -7,11 +7,13 @@ class Tafsir {
   final String path;
   final String size;
   final int duration;
+   bool isdownload;
   Tafsir({
     required this.titre,
     required this.path,
     required this.size,
     required this.duration,
+    required this.isdownload,
   });
 
   Tafsir copyWith({
@@ -19,12 +21,14 @@ class Tafsir {
     String? path,
     String? size,
     int? duration,
+    bool? isdownload
   }) {
     return Tafsir(
       titre: titre ?? this.titre,
       path: path ?? this.path,
       size: size ?? this.size,
       duration: duration ?? this.duration,
+        isdownload: isdownload ?? this.isdownload,
     );
   }
 
@@ -34,6 +38,7 @@ class Tafsir {
       'path': path,
       'size': size,
       'duration': duration,
+      'isdownload': isdownload,
     };
   }
 
@@ -43,9 +48,9 @@ class Tafsir {
       path: map['path'],
       size: map['size'],
       duration: map['duration'],
+      isdownload: false,
     );
   }
-
 
   factory Tafsir.fromDocumentSnapshot(DocumentSnapshot map) {
     return Tafsir(
@@ -53,9 +58,9 @@ class Tafsir {
       path: map['path'] as String,
       size: map['size'] as String,
       duration: map['duration'] as int,
+       isdownload: false,
     );
   }
-
 
   String toJson() => json.encode(toMap());
 
@@ -69,19 +74,16 @@ class Tafsir {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Tafsir &&
-      other.titre == titre &&
-      other.path == path &&
-      other.size == size &&
-      other.duration == duration;
+        other.titre == titre &&
+        other.path == path &&
+        other.size == size &&
+        other.duration == duration;
   }
 
   @override
   int get hashCode {
-    return titre.hashCode ^
-      path.hashCode ^
-      size.hashCode ^
-      duration.hashCode;
+    return titre.hashCode ^ path.hashCode ^ size.hashCode ^ duration.hashCode;
   }
 }

@@ -1,13 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:tafsir_app/controllers/home_controllers.dart';
 
 import 'package:tafsir_app/screens/home_screen.dart';
 import 'package:tafsir_app/screens/player_screen.dart';
 import 'package:tafsir_app/styles/theme_style.dart';
 
-void main() {
+void main() async{
+    await GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();
  
   runApp(MyApp());

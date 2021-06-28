@@ -17,7 +17,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -58,44 +57,55 @@ class HomeScreen extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
           itemCount: listTafsir.length,
-          itemBuilder: (_, index) {
-            return Container(
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              width: Get.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    child: Icon(Icons.download),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 1,
-                        )),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          'Riyaad Tafasir ${listTafsir[index].titre}',
-                          style: rowtitreStyle,
-                        ),
-                        Text(listTafsir[index].size)
-                      ],
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+               
+                //homeController.downloadFromFirebase(listTafsir[index], context);
+              },
+              child: Container(
+                margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                width: Get.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      child: Obx(() => Icon(
+                            Icons.download,
+                            color: listTafsir[index].isdownload
+                                ? Colors.green
+                                : Colors.black,
+                          )),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 1,
+                          )),
                     ),
-                  ),
-                  Container(
-                    child: Text(
-                        homeController.converTo(listTafsir[index].duration)),
-                  ),
-                  Container(
-                    child: Icon(
-                      Icons.favorite,
-                      color: primaryColor,
+                    Container(
+                      child: Column(
+                        children: [
+                          Text(
+                            'Riyaad Tafasir ${listTafsir[index].titre}',
+                            style: rowtitreStyle,
+                          ),
+                          Text(listTafsir[index].size)
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    Container(
+                      child: Text(
+                          homeController.converTo(listTafsir[index].duration)),
+                    ),
+                    Container(
+                      child: Icon(
+                        Icons.favorite,
+                        color: primaryColor,
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           }),
@@ -135,7 +145,8 @@ class HomeScreen extends StatelessWidget {
                 )),
                 InkWell(
                     onTap: () {
-                       playerController.generateAudioList(homeController.listtafsir);
+                      playerController
+                          .generateAudioList(homeController.listtafsir);
                       playerController.play();
                     },
                     child: Container(
